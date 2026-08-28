@@ -6,7 +6,8 @@
     "dev": "vite",
     "typecheck": "tsc",
     "lint": "eslint .",
-    "build": "vite build"
+    "build": "vite build",
+    "format": "prettier . --write"
   },
   "keywords": [],
   "author": "",
