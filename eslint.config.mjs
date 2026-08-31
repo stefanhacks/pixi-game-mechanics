@@ -29,11 +29,13 @@ export default tseslint.config(
       "@typescript-eslint/no-unsafe-return": "error",
 
       "@typescript-eslint/await-thenable": "error",
+      "@typescript-eslint/explicit-function-return-type": "error",
       "@typescript-eslint/no-floating-promises": "error",
       "@typescript-eslint/no-misused-promises": "error",
       "@typescript-eslint/require-await": "error",
 
       "array-bracket-spacing": ["error", "never"],
+      "brace-style": ["error", "1tbs"],
       "comma-dangle": ["error", "always-multiline"],
       "comma-spacing": ["error", { before: false, after: true }],
       "eol-last": ["error", "always"],
@@ -54,7 +56,7 @@ export default tseslint.config(
       "semi": ["error", "always"],
       "quotes": ["error", "double"],
       "eqeqeq": ["error", "always"],
-      "curly": ["error", "all"],
+      "curly": ["error", "multi-line"],
       "no-console": "warn",
       "no-debugger": "error",
       "no-duplicate-imports": "error",

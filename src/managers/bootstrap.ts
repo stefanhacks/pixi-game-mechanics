@@ -11,7 +11,7 @@ export default class Bootstrap {
   private app: Application;
 
   private viewport: Viewport;
-  public layers: Container[];
+  private layers: Container[];
 
   constructor(app: Application) {
     this.app = app;
@@ -26,7 +26,7 @@ export default class Bootstrap {
   private makeViewport(): Viewport {
     const viewport = new Viewport();
 
-    const onResize = () => {
+    const onResize = (): void => {
       const { width, height } = this.app.screen;
       viewport.position.set(width / 2 - viewport.width / 2, height / 2 - viewport.height / 2);
       viewport.onResize(Math.min(height, width));

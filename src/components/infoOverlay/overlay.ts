@@ -2,9 +2,14 @@ import { Container } from "pixi.js";
 import { OverlayBackground } from "./background";
 import { OverlayMessage } from "./message";
 
+enum RENDER_ORDER {
+  BACKGROUND,
+  MESSAGE,
+}
+
 export default class InfoOverlay extends Container {
-  private background: OverlayBackground = new OverlayBackground({ zIndex: 0 });
-  private message: OverlayMessage = new OverlayMessage({ zIndex: 1 });
+  private background: OverlayBackground = new OverlayBackground({ zIndex: RENDER_ORDER.BACKGROUND });
+  private message: OverlayMessage = new OverlayMessage({ zIndex: RENDER_ORDER.MESSAGE });
 
   private readonly padding = 16;
 
