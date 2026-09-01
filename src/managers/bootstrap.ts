@@ -1,10 +1,10 @@
 import { Application, Container } from "pixi.js";
-import InfoOverlay from "../components/infoOverlay/overlay";
 import Viewport from "../components/viewport/viewport";
+import UI from "../components/overlay/ui";
 
 enum RENDER_ORDER {
   CHIP,
-  DEBUG,
+  UI,
 }
 
 export default class Bootstrap {
@@ -43,19 +43,11 @@ export default class Bootstrap {
     return new Container({ label: "ChipLayer", zIndex: RENDER_ORDER.CHIP + 1 });
   }
 
-  private makeDebugLayer(): Container {
-    const debug = new Container({ label: "DebugLayer", zIndex: RENDER_ORDER.DEBUG + 1 });
-
-    const infoMargin = 16;
-    const info = new InfoOverlay();
-    info.position.set(this.viewport.VIEWPORT_SIZE - info.width - infoMargin, infoMargin);
-
-    debug.addChild(info);
-
-    return debug;
+  private makeUILayer(): Container {
+    return new UI({ label: "UILayer", zIndex: RENDER_ORDER.UI + 1 }, this.viewport.VIEWPORT_SIZE);
   }
 
   private makeLayers(): Container[] {
-    return [this.makeChipLayer(), this.makeDebugLayer()];
+    return [this.makeChipLayer(), this.makeUILayer()];
   }
 }
